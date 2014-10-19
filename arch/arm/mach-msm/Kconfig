@@ -873,7 +873,14 @@ config MACH_FSM9XXX_SURF
 	  chipset based SURF evaluation board and
 	  FFA board.
 
+config CUST_PANTECH_H
+    bool
+
 endmenu
+
+if CUST_PANTECH_H
+source "arch/arm/mach-msm/cust/Kconfig"
+endif
 
 config MSM_STACKED_MEMORY
 	bool "Stacked Memory"

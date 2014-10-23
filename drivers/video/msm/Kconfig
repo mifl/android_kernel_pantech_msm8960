@@ -174,10 +174,15 @@ config FB_MSM_LCDC_PANEL
 	select FB_MSM_LCDC
 	default n
 
+config FB_MSM_MIPI_DSI_ROHM
+	bool
+	select FB_MSM_MIPI_DSI
+	default n
+
 config FB_MSM_MIPI_DSI_SAMSUNG_OCTA
-    bool
-    select FB_MSM_MIPI_DSI
-    default n
+	bool
+	select FB_MSM_MIPI_DSI
+	default n
 
 config FB_MSM_MIPI_DSI_TOSHIBA
 	bool
@@ -312,10 +317,15 @@ config FB_MSM_LVDS_CHIMEI_WXGA
 	select FB_MSM_LVDS
 	default n
 
+config FB_MSM_MIPI_ROHM_VIDEO_HD
+	bool
+	select FB_MSM_MIPI_DSI_ROHM
+	default n
+
 config FB_MSM_MIPI_SAMSUNG_OCTA_VIDEO_QHD
-    bool
-    select FB_MSM_MIPI_DSI_SAMSUNG_OCTA
-    default n
+	bool
+	select FB_MSM_MIPI_DSI_SAMSUNG_OCTA
+	default n
 
 config FB_MSM_LVDS_FRC_FHD
 	bool
@@ -660,9 +670,13 @@ config FB_MSM_MDDI_SHARP_QVGA_128x128
 	---help---
 	  Support for MDDI Sharp QVGA (240x320) and 128x128 dual panel
 
+config FB_MSM_MIPI_ROHM_VIDEO_HD_PANEL
+	bool "MIPI Rohm HD Panel (Magnus)"
+	select FB_MSM_MIPI_ROHM_VIDEO_HD
+
 config FB_MSM_MIPI_SAMSUNG_OCTA_VIDEO_QHD_PANEL
-    bool "MIPI Samsung Octa QHD Panel"
-    select FB_MSM_MIPI_SAMSUNG_OCTA_VIDEO_QHD
+	bool "MIPI Samsung Octa QHD Panel"
+	select FB_MSM_MIPI_SAMSUNG_OCTA_VIDEO_QHD
 
 config FB_MSM_MIPI_TOSHIBA_VIDEO_WVGA_PT_PANEL
 	bool "MIPI Toshiba WVGA PT Panel"

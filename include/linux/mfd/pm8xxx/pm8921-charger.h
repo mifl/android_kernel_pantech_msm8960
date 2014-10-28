@@ -63,7 +63,6 @@ enum pm8921_chg_led_src_config {
  * @ttrkl_time:		max trckl charging time in minutes
  *			valid range 1 to 64 mins. PON default 15 min
  * @update_time:	how often the userland be updated of the charging (msec)
- * @alarm_voltage:	the voltage (mV) when lower battery alarm is triggered
  * @max_voltage:	the max voltage (mV) the battery should be charged up to
  * @min_voltage:	the voltage (mV) where charging method switches from
  *			trickle to fast. This is also the minimum voltage the
@@ -129,7 +128,6 @@ struct pm8921_charger_platform_data {
 	unsigned int			max_voltage;
 	unsigned int			min_voltage;
 	unsigned int			uvd_thresh_voltage;
-	unsigned int			alarm_voltage;
 	unsigned int			resume_voltage_delta;
 	unsigned int			term_current;
 	int				cool_temp;
@@ -292,12 +290,6 @@ int pm8921_usb_ovp_disable(int disable);
  * batfet this will return 0.
  */
 int pm8921_is_batfet_closed(void);
-#ifdef CONFIG_WIRELESS_CHARGER
-int set_wireless_power_supply_control(int value);
-#endif
-
-int pm8921_set_ext_battery_health(int health, int i_limit);
-
 #else
 static inline void pm8921_charger_vbus_draw(unsigned int mA)
 {
